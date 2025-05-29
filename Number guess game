@@ -1,0 +1,43 @@
+import random
+
+while True:
+  try:
+    lower_limit = int(input("Please input the starting point: "))
+    upper_limit = int(input("Please input the finish point: "))
+    
+
+    if lower_limit >= upper_limit :
+      print("The finish point should be greater than the statrting point")
+      continue
+
+    elif  upper_limit - lower_limit == 1:
+      print("The difference between the starting point and finish point should be greater than 1")
+      continue
+
+    number = random.randint(lower_limit, upper_limit)
+
+    while True:
+
+
+      try:
+
+        prompt = int(input(f"Guess a number between {lower_limit} and {upper_limit}:  "))
+
+        if lower_limit <= prompt <= upper_limit:
+          if prompt > number:
+            print("Too high, try again")
+          elif prompt < number:
+            print("Too low, try again")
+          else:
+            print("Congratulations!!!!!    You guessed the correct number")
+            break
+
+        else:
+          print(f"Let your guess be in the range of {lower_limit} to {upper_limit}")
+
+      except ValueError:
+        print("Please input a valid integer")
+    break
+
+  except ValueError:
+    print("Enter a valid figure")
